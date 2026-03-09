@@ -1,0 +1,225 @@
+.app {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Animated gradient mesh background */
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background:
+        radial-gradient(ellipse at 20% 50%, #1a1040 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, #0d2040 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, #001a30 0%, transparent 50%),
+        #0a0e1a;
+}
+
+/* Floating orbs */
+.orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.orb1 {
+    width: 400px;
+    height: 400px;
+    background: rgba(79, 195, 247, 0.12);
+    top: -100px;
+    left: -100px;
+    animation: orbitDrift 20s ease-in-out infinite;
+}
+
+.orb2 {
+    width: 350px;
+    height: 350px;
+    background: rgba(179, 136, 255, 0.1);
+    bottom: -80px;
+    right: -80px;
+    animation: orbitDrift 25s ease-in-out infinite reverse;
+}
+
+.orb3 {
+    width: 300px;
+    height: 300px;
+    background: rgba(0, 229, 255, 0.08);
+    top: 40%;
+    left: 60%;
+    animation: orbitDrift 18s ease-in-out infinite 5s;
+}
+
+@keyframes orbitDrift {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(30px, -20px) scale(1.05);
+    }
+
+    66% {
+        transform: translate(-20px, 15px) scale(0.95);
+    }
+}
+
+/* Content Area */
+.content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px 16px 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Header Row */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.searchArea {
+    flex: 1;
+    min-width: 0;
+}
+
+@media (max-width: 480px) {
+    .header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .header> :last-child {
+        align-self: flex-end;
+    }
+}
+
+/* Section spacing */
+.section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Error State */
+.errorContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    gap: 16px;
+    animation: fadeSlideUp 0.6s ease both;
+}
+
+.errorIcon {
+    width: 80px;
+    height: 80px;
+    color: var(--text-muted);
+    opacity: 0.5;
+}
+
+.errorTitle {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.errorMessage {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    max-width: 300px;
+}
+
+.retryBtn {
+    margin-top: 8px;
+    padding: 10px 28px;
+    border-radius: 50px;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    color: var(--accent-blue);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.retryBtn:hover {
+    background: var(--glass-hover);
+    transform: translateY(-1px);
+}
+
+/* Alerts Banner */
+.alertsBanner {
+    background: rgba(255, 152, 0, 0.1);
+    border: 1px solid rgba(255, 152, 0, 0.25);
+    border-radius: 16px;
+    padding: 14px 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    animation: fadeSlideUp 0.6s ease both;
+}
+
+.alertIcon {
+    width: 20px;
+    height: 20px;
+    color: #ff9800;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.alertContent {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.alertHeadline {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #ffb74d;
+}
+
+.alertDesc {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (min-width: 768px) {
+    .content {
+        padding: 40px 24px 60px;
+        gap: 28px;
+    }
+}

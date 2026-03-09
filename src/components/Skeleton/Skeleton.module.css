@@ -1,0 +1,116 @@
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.block {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04) 25%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.04) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 12px;
+}
+
+/* Current Weather Skeleton */
+.currentSkeleton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 40px 20px;
+}
+
+.iconBlock {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.tempBlock {
+  width: 180px;
+  height: 72px;
+  border-radius: 16px;
+}
+
+.conditionBlock {
+  width: 140px;
+  height: 24px;
+}
+
+.cityBlock {
+  width: 200px;
+  height: 20px;
+}
+
+/* Hourly Skeleton */
+.hourlySkeleton {
+  display: flex;
+  gap: 12px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.hourItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-width: 70px;
+}
+
+.smallText {
+  width: 40px;
+  height: 14px;
+  border-radius: 7px;
+}
+
+.smallIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+/* Weekly Skeleton */
+.weeklySkeleton {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+  padding: 20px;
+}
+
+.weekDay {
+  height: 130px;
+  border-radius: 16px;
+}
+
+/* Details Skeleton */
+.detailsSkeleton {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 20px;
+}
+
+.detailCard {
+  height: 120px;
+  border-radius: 16px;
+}
+
+.cardBlock {
+  height: 100px;
+  border-radius: 16px;
+}
+
+@media (min-width: 768px) {
+  .detailsSkeleton {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
